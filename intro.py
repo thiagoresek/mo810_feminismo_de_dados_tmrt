@@ -71,9 +71,3 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-def clear_iterations():
-    with open('iteration.txt', 'w') as f:
-        f.write('0')
-
-clear_iterations()

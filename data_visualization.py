@@ -56,29 +56,15 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-def get_iteration():
-    iteration = 0
-    try:
-        with open('iteration.txt', 'r') as f:
-            iteration = int(f.readlines()[0])
-    except FileNotFoundError:
-        pass
-    with open('iteration.txt', 'w') as f:
-        f.write(str(iteration+1))
-    return iteration
-
-def get_text():
+def get_text(n_iteration):
     with open("inputs/sentences_high.json", "r") as file:
         sentences_high = json.load(file)
 
     with open("inputs/sentences_avg.json", "r") as file:
         sentences_avg = json.load(file)
-        
-    iteration = get_iteration()
 
-    print(f"get_text: {iteration}")
-    if iteration < len(sentences_high):
-        text = sentences_high[iteration]
+    if n_iteration < len(sentences_high):
+        text = sentences_high[n_iteration]
     else:
         text = random.choice(sentences_avg)  # your prebuilt list of sentences
 
@@ -125,15 +111,16 @@ st.markdown(
 # Placeholder for the changing text
 placeholder = st.empty()
 
+n_iteration = 0
+
 # Initialize state
 if "current_text" not in st.session_state:
-    st.session_state.current_text = get_text()
+    st.session_state.current_text = get_text(n_iteration)
 
 
 
 def render(text, css_class):
     """Render the given text with the provided CSS class into the same placeholder."""
-    print(text)
     html = f"<div class='main-text {css_class}'>{text}</div>"
     placeholder.markdown(html, unsafe_allow_html=True)
     placeholder.markdown(html, unsafe_allow_html=True)
@@ -148,7 +135,7 @@ while True:
     new_text = st.session_state.current_text
     attempt = 0
     while new_text == st.session_state.current_text and attempt < 10:
-        new_text = get_text()
+        new_text = get_text(n_iteration)
         attempt += 1
 
     # FADE OUT current text (apply fade-out to the same existing text)
@@ -159,3 +146,4 @@ while True:
     st.session_state.current_text = new_text
     render(st.session_state.current_text, "fade-in")
     time.sleep(12)   # visible time (2s fade-in + 6s visible + next 2s fade-out = 10s)
+    n_iteration += 1
