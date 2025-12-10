@@ -1,0 +1,595 @@
+NU_NOTIFIC:
+  nome: Nº da Notificação
+  tipo: varchar2(7)
+  descricao: Número da Notificação
+  caracteristicas: Campo Chave para identificação do registro no sistema
+TP_NOT:
+  nome: Tipo de Notificação
+  tipo: varchar2(1)
+  descricao: Identifica o tipo da notificação
+  caracteristicas: Campo Obrigatório
+  valores:
+    '1': Negativa
+    '2': Individual
+    '3': Surto
+    '4': Agregado
+ID_AGRAVO:
+  nome: Agravo
+  tipo: varchar2(4)
+  descricao: Nome e código do agravo notificado segundo CID-10
+  caracteristicas: Campo Chave. Preenchendo o código, a descrição é preenchida automaticamente
+    e vice-versa
+CS_SUSPEIT:
+  nome: Suspeita do Agravo
+  tipo: varchar2(1)
+  descricao: Especifica a suspeição do agravo
+  caracteristicas: Campo Obrigatório para doenças exantemáticas, meningite e AIDS
+  valores:
+    '1': Sarampo
+    '2': Rubéola
+    '3': Doenças Meningocócicas
+    '4': Outras Meningites
+    C: AIDS Criança (<13)
+    A: AIDS Adulto (≥13 anos)
+DT_NOTIFIC:
+  nome: Data da Notificação
+  tipo: date
+  descricao: Data de preenchimento da ficha de notificação
+  caracteristicas: Campo Chave
+SEM_NOT:
+  nome: Semana epidemiológica da notificação
+  tipo: varchar2(6)
+  descricao: Semana epidemiológica que o caso foi notificado
+  caracteristicas: Preenchida automaticamente a partir da data de notificação
+NU_ANO:
+  nome: Ano da notificação
+  tipo: varchar2(4)
+  descricao: Ano da notificação
+  caracteristicas: Campo interno
+SG_UF_NOT:
+  nome: UF de Notificação
+  tipo: varchar2(2)
+  descricao: Sigla da Unidade Federativa onde está localizada a unidade notificadora
+  caracteristicas: Campo Obrigatório
+ID_MUNICIP:
+  nome: Município de Notificação
+  tipo: varchar2(6)
+  descricao: Código do município onde está localizada a unidade de saúde
+  caracteristicas: Campo Chave
+ID_REGIONA:
+  nome: Regional de Saúde
+  tipo: varchar2(4)
+  descricao: Código da regional de saúde associada ao município
+  caracteristicas: Campo interno
+ID_UNIDADE:
+  nome: Unidade de saúde ou fonte notificadora
+  tipo: number(8,0)
+  descricao: Nome e código da unidade de saúde
+  caracteristicas: Campo Obrigatório
+DT_SIN_PRI:
+  nome: Data dos primeiros sintomas / Diagnóstico
+  tipo: date
+  descricao: Data dos primeiros sintomas do caso ou do diagnóstico
+  caracteristicas: Campo Obrigatório
+SEM_PRI:
+  nome: Semana epidemiológica dos primeiros sintomas
+  tipo: varchar2(6)
+  descricao: Semana epidemiológica dos primeiros sintomas
+  caracteristicas: Preenchida automaticamente
+NO_PACIENT:
+  nome: Nome do Paciente
+  tipo: varchar2(70)
+  descricao: Nome completo do paciente
+  caracteristicas: Campo Obrigatório
+DT_NASC:
+  nome: Data de nascimento
+  tipo: date
+  descricao: Data de nascimento do paciente
+  caracteristicas: Campo Obrigatório
+NU_IDADE_N:
+  nome: Idade
+  tipo: number(4)
+  descricao: Idade aparente ou calculada
+  caracteristicas: Campo Obrigatório
+  title: Idade do paciente
+CS_SEXO:
+  nome: Sexo
+  tipo: varchar2(1)
+  descricao: Sexo do paciente
+  caracteristicas: Campo Obrigatório
+  valores:
+    M: Masculino
+    F: Feminino
+    I: Ignorado
+  title: Sexo do paciente
+CS_GESTANT:
+  nome: Gestante
+  tipo: varchar2(1)
+  descricao: Idade gestacional da paciente
+  caracteristicas: Obrigatório se sexo = F
+  valores:
+    '1': 1º Trimestre
+    '2': 2º Trimestre
+    '3': 3º Trimestre
+    '4': Idade gestacional ignorada
+    '5': Não
+    '6': Não se aplica
+    '9': Ignorado
+  title: Idade gestacional da paciente
+CS_RACA:
+  nome: Raça/Cor
+  tipo: varchar2(1)
+  descricao: Cor ou raça declarada
+  caracteristicas: Campo Essencial
+  valores:
+    '1': Branca
+    '2': Preta
+    '3': Amarela
+    '4': Parda
+    '5': Indígena
+    '9': Ignorado
+  title: Cor ou raça declarada do paciente
+CS_ESCOL_N:
+  nome: Escolaridade
+  tipo: varchar2(2)
+  descricao: Grau de instrução do paciente
+  caracteristicas: Campo Essencial
+  valores:
+    '01': 1ª a 4ª do EF incompleta
+    '02': 4ª completa do EF
+    '03': 5ª a 8ª do EF incompleta
+    '04': EF completo
+    '05': EM incompleto
+    '06': EM completo
+    '07': ES incompleto
+    08: ES completo
+    09: Ignorado
+    '10': Não se aplica
+  title: Grau de instrução do paciente
+ID_CNS_SUS:
+  nome: Nº Cartão SUS
+  tipo: varchar2(15)
+  descricao: Número do cartão do SUS do paciente
+  caracteristicas: Campo Essencial
+NM_MAE_PAC:
+  nome: Nome da mãe
+  tipo: varchar2(60)
+  descricao: Nome completo da mãe do paciente
+  caracteristicas: Campo Essencial
+SG_UF:
+  nome: UF de Residência
+  tipo: varchar2(2)
+  descricao: Sigla da UF de residência
+  caracteristicas: Campo Obrigatório se residente no Brasil
+ID_MN_RESI:
+  nome: Município de Residência
+  tipo: varchar2(6)
+  descricao: Código do município de residência
+  caracteristicas: Campo Obrigatório
+ID_RG_RESI:
+  nome: Regional de saúde da residência
+  tipo: varchar2(4)
+  descricao: Código da regional de saúde associada ao município de residência
+  caracteristicas: Campo interno
+ID_DISTRIT:
+  nome: Distrito
+  tipo: varchar2(9)
+  descricao: Distrito de residência do paciente
+  caracteristicas: Campo Essencial
+ID_BAIRRO:
+  nome: Bairro
+  tipo: number(8)
+  descricao: Código do bairro de residência
+  caracteristicas: Campo Essencial
+NM_BAIRRO:
+  nome: Nome do Bairro
+  tipo: varchar2(60)
+  descricao: Nome do bairro de residência
+  caracteristicas: Campo Essencial
+NM_LOGR:
+  nome: Logradouro
+  tipo: varchar2(60)
+  descricao: Logradouro de residência
+  caracteristicas: Opcional
+NU_END:
+  nome: Número
+  tipo: varchar2(10)
+  descricao: Número da residência
+  caracteristicas: Opcional
+NM_COMP:
+  nome: Complemento
+  tipo: varchar2(60)
+  descricao: Complemento do endereço
+  caracteristicas: Opcional
+NU_CEP:
+  nome: CEP
+  tipo: varchar2(8)
+  descricao: CEP de residência
+  caracteristicas: Opcional
+DDD_TEL:
+  nome: DDD Telefone
+  tipo: varchar2(3)
+  descricao: DDD do telefone de contato
+  caracteristicas: Opcional
+NU_TELEF:
+  nome: Telefone
+  tipo: varchar2(10)
+  descricao: Número de telefone do paciente
+  caracteristicas: Opcional
+COORD_X:
+  nome: Coordenada X
+  tipo: number(15,10)
+  descricao: Coordenada geográfica X
+  caracteristicas: Opcional
+COORD_Y:
+  nome: Coordenada Y
+  tipo: number(15,10)
+  descricao: Coordenada geográfica Y
+  caracteristicas: Opcional
+ID_AUTOCTO:
+  nome: Autoctonia
+  tipo: varchar2(1)
+  descricao: Indica se caso é autóctone ou importado
+  caracteristicas: Campo Essencial
+  valores:
+    '1': Autóctone
+    '2': Importado
+    '9': Ignorado
+CS_OBITO:
+  nome: Óbito
+  tipo: varchar2(1)
+  descricao: Indica se houve óbito
+  caracteristicas: Campo Essencial
+  valores:
+    '1': Sim
+    '2': Não
+    '9': Ignorado
+DT_OBITO:
+  nome: Data do óbito
+  tipo: date
+  descricao: Data do óbito do paciente
+  caracteristicas: Opcional
+ID_CASO:
+  nome: Classificação do Caso
+  tipo: varchar2(1)
+  descricao: Classificação do caso
+  caracteristicas: Campo Essencial
+  valores:
+    '1': Confirmado
+    '2': Descartado
+    '3': Suspeito
+    '9': Ignorado
+ID_VACINA:
+  nome: Vacinação
+  tipo: varchar2(1)
+  descricao: Indica se paciente foi vacinado
+  caracteristicas: Campo Essencial
+  valores:
+    '1': Sim
+    '2': Não
+    '3': Ignorado
+TP_FICHA:
+  nome: Tipo de Ficha
+  tipo: varchar2(1)
+  descricao: Indica o tipo de ficha preenchida
+  caracteristicas: Campo interno
+  valores:
+    '1': Individual
+    '2': Surto
+    '3': Agregado
+ID_SURTO:
+  nome: Surto
+  tipo: varchar2(1)
+  descricao: Indica se o caso faz parte de um surto
+  valores:
+    '1': Sim
+    '2': Não
+    '9': Ignorado
+ID_VINCULO:
+  nome: Vinculação com outros casos
+  tipo: varchar2(1)
+  descricao: Indica se o caso está vinculado a outro
+  valores:
+    '1': Sim
+    '2': Não
+    '9': Ignorado
+ID_ORIGEM:
+  nome: Local de origem da notificação
+  tipo: varchar2(1)
+  descricao: Indica se a notificação é de outro município ou estado
+  valores:
+    '1': Local
+    '2': Outro Município
+    '3': Outro Estado
+    '9': Ignorado
+ID_TRAT:
+  nome: Tratamento
+  tipo: varchar2(1)
+  descricao: Indica se o paciente recebeu tratamento
+  valores:
+    '1': Sim
+    '2': Não
+    '3': Não se aplica
+    '9': Ignorado
+ID_HOSP:
+  nome: Hospitalização
+  tipo: varchar2(1)
+  descricao: Indica se o paciente foi hospitalizado
+  valores:
+    '1': Sim
+    '2': Não
+    '9': Ignorado
+ID_TABACO:
+  nome: Tabagismo
+  tipo: varchar2(1)
+  descricao: Indica se paciente é fumante
+  valores:
+    '1': Sim
+    '2': Não
+    '9': Ignorado
+ALCOOL:
+  nome: Consumo de álcool
+  tipo: varchar2(1)
+  descricao: Indica se paciente consome álcool
+  valores:
+    '1': Sim
+    '2': Não
+    '9': Ignorado
+  dbf: ALCOOL
+  title: O paciente consome álcool?
+ID_OUTROS_HAB:
+  nome: Outros hábitos / fatores de risco
+  tipo: varchar2(1)
+  descricao: Indica presença de outros fatores de risco
+  valores:
+    '1': Sim
+    '2': Não
+    '9': Ignorado
+CO_OCUP:
+  nome: Código da ocupação
+  tipo: varchar2(6)
+  descricao: Código da ocupação principal do paciente
+NM_OCUP:
+  nome: Nome da ocupação
+  tipo: varchar2(60)
+  descricao: Descrição da ocupação do paciente
+ID_EMPRESA:
+  nome: Empresa ou local de trabalho
+  tipo: varchar2(8)
+  descricao: Código da empresa ou local de trabalho do paciente
+ID_FLUXO:
+  nome: Fluxo de retorno
+  tipo: varchar2(1)
+  descricao: Indica se o caso foi transferido ou retornou a outra unidade
+  valores:
+    '1': Sim
+    '2': Não
+    '9': Ignorado
+ID_TRANSF:
+  nome: Transferência de paciente
+  tipo: varchar2(1)
+  descricao: Indica se paciente foi transferido para outra unidade
+  valores:
+    '1': Sim
+    '2': Não
+    '9': Ignorado
+DS_OBS:
+  nome: Observações
+  tipo: varchar2(255)
+  descricao: Campo livre para observações adicionais do caso
+DROGAS:
+  nome: Hábitos Drogas Psicoativas
+  tipo: varchar2(1)
+  descricao: Hábito do paciente em uso de Drogas Psicoativas
+  caracteristicas: Campo essencial
+  dbf: DROGAS
+  valores:
+    '1': Sim
+    '2': Não
+    '9': Ignorado
+  title: O paciente possui o hábito de uso de drogas psicoativas?
+PSICO_FARM:
+  nome: Hábitos Psicofármacos
+  tipo: varchar2(1)
+  descricao: Hábito do paciente por uso de Psicofármacos
+  caracteristicas: Campo essencial
+  dbf: PSICO_FARM
+  valores:
+    '1': Sim
+    '2': Não
+    '9': Ignorado
+  title: O paciente possui o hábito de uso de drogas psicofármacos?
+FUMA:
+  nome: Hábito de fumar
+  tipo: varchar2(1)
+  descricao: O paciente possui o hábito de fumar
+  caracteristicas: Campo essencial
+  dbf: FUMA
+  valores:
+    '1': Sim
+    '2': Não
+    '3': Ex-fumante
+    '9': Ignorado
+  title: O paciente possui o hábito de fumar?
+TEMPO_FUMA:
+  nome: Tempo de exposição ao tabaco
+  tipo: varchar2(1)
+  descricao: Tempo em que o paciente ficou exposto ao tabaco
+  caracteristicas: Campo essencial
+  dbf: TP_TEMP_FU
+  valores:
+    '1': Hora
+    '2': Dia
+    '3': Mês
+    '4': Ano
+AFAST_DESG:
+  nome: Conduta geral - Afastamento do desgaste mental
+  tipo: varchar2(1)
+  descricao: Informar conduta tomada em relação ao afastamento da situação de desgaste
+    mental
+  caracteristicas: Campo essencial
+  dbf: AFAST_DESG
+  valores:
+    '1': Sim
+    '2': Não
+  title: Houve afastamento da situação de desgaste mental?
+INDIVIDUAL:
+  nome: Conduta geral - Adoção de proteção individual
+  tipo: varchar2(1)
+  descricao: Informar conduta tomada em relação à adoção de proteção individual
+  caracteristicas: Campo essencial
+  dbf: INDIVIDUAL
+  valores:
+    '1': Sim
+    '2': Não
+MUDA_TRAB:
+  nome: Conduta geral - Adoção de mudança na organização de trabalho
+  tipo: varchar2(1)
+  descricao: Informar conduta tomada em relação à adoção de mudança na organização
+    de trabalho
+  caracteristicas: Campo essencial
+  dbf: MUDA_TRAB
+  valores:
+    '1': Sim
+    '2': Não
+NENHUM:
+  nome: Conduta geral - Nenhum
+  tipo: varchar2(1)
+  descricao: Informar conduta tomada em relação a Nenhum
+  caracteristicas: Campo essencial
+  dbf: NENHUM
+  valores:
+    '1': Sim
+    '2': Não
+COLETIVA:
+  nome: Conduta geral - Adoção de proteção coletiva
+  tipo: varchar2(1)
+  descricao: Informar conduta tomada em relação à adoção de proteção coletiva
+  caracteristicas: Campo essencial
+  dbf: COLETIVA
+  valores:
+    '1': Sim
+    '2': Não
+  title: Houve adoção de proteção coletiva?
+AFAST_TRAB:
+  nome: Conduta geral - Afastamento do local de trabalho
+  tipo: varchar2(1)
+  descricao: Informar conduta tomada em relação ao afastamento do local de trabalho
+  caracteristicas: Campo essencial
+  dbf: AFAST_TRAB
+  valores:
+    '1': Sim
+    '2': Não
+  title: Houve afastamento do local de trabalho?
+CONDUTA:
+  nome: Conduta geral - Outros
+  tipo: varchar2(1)
+  descricao: Informar conduta tomada em relação a outros
+  caracteristicas: Campo essencial
+  dbf: CONDUTA
+  valores:
+    '1': Sim
+    '2': Não
+  title: '??? CONDUTA '
+CONDUT_DES:
+  nome: Conduta geral - Especificar outros
+  tipo: varchar2(30)
+  descricao: Especificar a conduta geral de outros se houver
+  caracteristicas: Campo essencial
+  dbf: CONDUT_DES
+  title: Conduta tomada no caso
+TRAB_DOE:
+  nome: Há ou houve outros trabalhadores com a mesma doença no local de trabalho
+  tipo: varchar2(1)
+  descricao: Outros trabalhadores sofreram ou não o mesmo agravo no local de trabalho
+  caracteristicas: Campo essencial
+  dbf: TRAB_DOE
+  valores:
+    '1': Sim
+    '2': Não
+    '9': Ignorado
+  title: Há ou houve outros trabalhadores com a mesma doença no local de trabalho?
+CAPES:
+  nome: O paciente foi encaminhado a um centro de atenção psicossocial (CAPES)
+  tipo: varchar2(1)
+  descricao: Indica se paciente foi encaminhado ao CAPES ou serviço especializado
+  caracteristicas: Campo essencial
+  dbf: CAPES
+  valores:
+    '1': Sim
+    '2': Não
+    '9': Ignorado
+  title: O paciente foi encaminhado a um centro de atenção psicossocial (CAPS)?
+EVOLUCAO:
+  nome: Evolução do caso
+  tipo: varchar2(1)
+  descricao: Como evoluiu a situação do paciente
+  caracteristicas: Campo essencial
+  dbf: EVOLUCAO
+  valores:
+    '1': Cura
+    '2': Cura não confirmada
+    '3': Incapacidade temporária
+    '4': Incapacidade permanente parcial
+    '5': Incapacidade permanente total
+    '6': Óbito por doença relacionada ao trabalho
+    '7': Óbito por outra causa
+    '8': Outro
+    '9': Ignorado
+  title: Evolução do caso
+CAT:
+  nome: Foi emitida a Comunicação de Acidente do Trabalho
+  tipo: varchar2(1)
+  descricao: Informar se foi emitida comunicação de acidente do trabalho
+  caracteristicas: Campo obrigatório
+  dbf: CAT
+  valores:
+    '1': Sim
+    '2': Não
+    '3': Não se aplica
+    '9': Ignorado
+  title: Foi emitida a Comunicação de Acidente do Trabalho?
+SIT_TRAB:
+  nome: Situação no mercado de trabalho
+  tipo: varchar2(2)
+  descricao: Situação de trabalho do indivíduo que sofreu o agravo
+  caracteristicas: Campo essencial
+  dbf: SIT_TRAB
+  valores:
+    '1': Empregado registrado com carteira assinada
+    '2': Empregado não registrado
+    '3': Autônomo/conta própria
+    '4': 'Servidor público estatuário '
+    '5': Servidor público celetista
+    '6': Aposentado
+    '7': Desempregado
+    '8': Trabalho temporário
+    '9': Cooperativado
+    '10': Trabalhador avulso
+    '11': Empregador
+    '12': Outros
+    '99': Ignorado
+  title: Situação de trabalho do paciente
+TERCEIRIZA:
+  nome: O empregador é empresa Terceirizada
+  tipo: varchar2(1)
+  caracteristicas: Campo essencial
+  dbf: TERCEIRIZA
+  valores:
+    '1': Sim
+    '2': Não
+    '3': Não se aplica
+    '9': Ignorado
+  title: O empregador é empresa terceirizada?
+DIAG_ESP:
+  nome: Diagnóstico específico
+  tipo: varchar2(4)
+  caracteristicas: Campo essencial
+  dbf: DIAG_ESP
+  title: Número de casos reportados por diagnóstico específico 
+CNAE:
+  nome: Código da atividade Econômica(CNAE)
+  tipo: varchar2(10)
+  caracteristicas: Campo essencial
+  dbf: CNAE
+  title: Classificação Nacional da Atividade Econômica do Contratante

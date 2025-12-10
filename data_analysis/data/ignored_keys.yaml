@@ -1,0 +1,31 @@
+ALCOOL:
+- '9'
+CAT:
+- '9'
+CS_ESCOL_N:
+- '9'
+- 09
+CS_GESTANT:
+- '4'
+- '9'
+CS_RACA:
+- '9'
+CS_SEXO:
+- I
+CAPES:
+- '9'
+DROGAS:
+- '9'
+EVOLUCAO:
+- '9'
+FUMA:
+- '9'
+PSICO_FARM:
+- '9'
+SIT_TRAB:
+- '99'
+TERCEIRIZA:
+- '9'
+- 09
+TRAB_DOE:
+- '9'
